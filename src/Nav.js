@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Nav.css";
 
 function Nav() {
   // Using useState to initilize an veriable in react
   const [show, handleShow] = useState(false);
+  const navigate = useNavigate();
 
   const transitionNavBav = () => {
     if (window.scrollY > 100) {
@@ -26,12 +28,14 @@ function Nav() {
     <div className={`nav ${show && "nav__black"}`}>
       <div className="nav__contents">
         <img
+          onClick={() => navigate("/")}
           className="nav__logo"
           src="https://www.freepnglogos.com/uploads/netflix-logo-drawing-png-19.png"
           alt="netflix spelled out logo in red"
         />
 
         <img
+          onClick={() => navigate("/profile")}
           className="nav__avatar"
           src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/366be133850498.56ba69ac36858.png"
           alt="netflix default avatar logo in teal colour"
